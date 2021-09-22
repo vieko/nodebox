@@ -42,7 +42,11 @@ const printPlaylists = (data) => {
   )
   return results
 }
-console.log('RESULTS [All Playlists]', printPlaylists(library))
+console.log('------------------------')
+console.log('RESULTS :: All Playlists')
+console.log('------------------------')
+printPlaylists(library).forEach((item) => console.log(item))
+console.log('\n')
 
 // prints a list of all tracks, using the following format:
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
@@ -58,7 +62,11 @@ const printTracks = (data) => {
   )
   return results
 }
-console.log('RESULTS [All Tracks]', printTracks(library))
+console.log('---------------------')
+console.log('RESULTS :: All Tracks')
+console.log('---------------------')
+printTracks(library).forEach((item) => console.log(item))
+console.log('\n')
 
 // prints a list of tracks for a given playlist, using the following format:
 // p01: Coding Music - 2 tracks
