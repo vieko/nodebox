@@ -21,9 +21,48 @@ const library = {
   },
   playlists: {
     p01: {id: 'p01', name: 'Coding Music', tracks: ['t01', 't02']},
-    p02: {id: 'p02', name: 'Other Playlist', tracks: ['t03']},
+    p02: {id: 'p02', name: 'Other Playist', tracks: ['t03']},
   },
 }
+
+const debug = false
+
+const studentGrades = [2, 4, 4, 4, 5, 5, 7, 9]
+
+const getStandardDeviation = (grades) => {
+  // 1. get the mean or average
+  let mean = 0
+  for (i = 0; i < grades.length; i++) {
+    mean = mean + grades[i]
+  }
+  mean = mean / grades.length
+  console.log('DEBUG - mean', mean)
+  // 2. get deviation of each grade and square it
+  const deviations = []
+  for (i = 0; i < grades.length; i++) {
+    // each grade minus the mean to the power of two
+    // push results to array
+    deviations.push(Math.pow(grades[i] - mean, 2))
+  }
+  console.log('DEBUG - deviations', deviations)
+  // 3. get variance
+  let variance = 0
+  for (i = 0; i < grades.length; i++) {
+    variance = variance + deviations[i]
+  }
+  variance = variance / deviations.length
+  console.log('DEBUG - variance', variance)
+  // 4. get square root of variance
+  const sqrt = Math.sqrt(variance)
+  console.log('DEBUG - sqrt', sqrt)
+  // 5. profit!
+  return sqrt
+}
+
+console.log(
+  'RESULTS :: getStandardDeviation()',
+  getStandardDeviation(studentGrades),
+)
 
 /////////////////////////////
 // FUNCTIONS TO IMPLEMENT:
@@ -42,11 +81,14 @@ const printPlaylists = (data) => {
   )
   return results
 }
-console.log('------------------------')
-console.log('RESULTS :: All Playlists')
-console.log('------------------------')
-printPlaylists(library).forEach((item) => console.log(item))
-console.log('\n')
+
+if (debug) {
+  console.log('------------------------')
+  console.log('RESULTS :: All Playlists')
+  console.log('------------------------')
+  printPlaylists(library).forEach((item) => console.log(item))
+  console.log('\n')
+}
 
 // prints a list of all tracks, using the following format:
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
@@ -62,11 +104,14 @@ const printTracks = (data) => {
   )
   return results
 }
-console.log('---------------------')
-console.log('RESULTS :: All Tracks')
-console.log('---------------------')
-printTracks(library).forEach((item) => console.log(item))
-console.log('\n')
+
+if (debug) {
+  console.log('---------------------')
+  console.log('RESULTS :: All Tracks')
+  console.log('---------------------')
+  printTracks(library).forEach((item) => console.log(item))
+  console.log('\n')
+}
 
 // prints a list of tracks for a given playlist, using the following format:
 // p01: Coding Music - 2 tracks
