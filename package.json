@@ -1,0 +1,18 @@
+{
+  "name": "nodebox",
+  "version": "1.0.0",
+  "description": "quick node sandbox",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vieko Franetovic <vieko.franetovic@gmail.com",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12"
+  }
+}
